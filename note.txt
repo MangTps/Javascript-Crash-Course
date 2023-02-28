@@ -1,0 +1,72 @@
+Topic 
+    Javascript คือ
+        high level programming language(human can read) ใช้ในการพัฒนาapplication เว็ปไซต์ appบนคอม
+        เช่น vscode atom facebook netflix
+        รันได้ทุกเบราเซอร์ เพราะมันมี javascript engine เช่น Chakra(IE) V8(chrome)เร็วที่สุด SpiderMonkey(Firefox) javaScriptCore(safari)
+        นำ v8 มาใช้ในการสร้าง nodejs  
+        EcmaScript เป็นไกด์ไลน์ว่าjavascriptควรมีคุณสมบัติอะไรบ้าง เป็นแค่กระดาษเฉยๆ
+        ทีมงานก็นำ EcmaScript มาประกอบการพัฒนา javascript
+    Variable
+        หรือตัวแปรคือที่ในการเก็บข้อมูลในหน่วยความจำของคอมพิวเตอร์ ซึ่งสามารถเรียกใช้ตอนหลังได้ด้วยชื่อของตัวแปร
+        ตัวแปรมีทั้งหมด 3 ประเภทคือ var(ปัญหาเยอะแยะ) let const
+        const จริงๆแล้วย่อมาจาก constant ที่แปลว่าค่าคงที่ เราไม่สามารถที่จะเปลี่ยนค่ามันได้
+        เช่น const myname = 'mm'; myname = 'akb' จะเกิด error
+        let จะเปลี่ยนค่าได้ เช่น let height = 180; height = 172
+        ข้อห้าม
+         1.ห้ามตั้งชื่อโดยใช้คำสงวนของภาษาเช่น const const, const let
+         2.ห้ามขึ้นต้นด้วยตัวเลข เช่น const 1name
+         3.ห้ามใช้สัญลักษณ์ต่างๆ
+    Data Types
+        2 หมวดหมู่
+        1.Primative  String Number Boolean Undefined(ไม่ถูก assign ค่า) Null(ไม่มีค่า) Symbol Bigint(ลงท้ายด้วย n เสมอ)
+        2.Reference  Object(วัตถุที่เก็บคุณสมบัติของมันไว้ เข้าถึงคุณสมบัติด้วยการพิมแบบนี้ วัตถุ.คุณสมบัติ เช่น person.name ตอนประกาศให้ใช้ปีกกา{})
+                     Array(ชุดข้อมูลชุดนึงที่มีข้อมูลต่างๆเก็บไว้ด้วยกันในที่เดียวกัน ตอนประกาศให้ใช้ก้ามปู[] เริ่มที่ 0 length จะตามจำนวนตัวที่ใส่)
+                     Function
+    Arithmetric Operators
+        คือเครื่องหมายการคำนวณ
+            + - *(คูณ) /(หาร) %(หารเอาเศษ) **(ยกกำลัง)
+           ถ้ามีวงเล็บให้ทำในวงเล็บก่อน ยกกำลังความสำคัญสูงสุด คูณกับหารและmodulusจะถูกคิดก่อนบวกกับลบ ถ้าหากมีความสำคัญเท่ากันจะเรียงจากซ้ายไปขวา
+    Conditions(เงื่อนไข)
+            เครื่องหมาย (===) equal (!==) Not equal (>) Greater than (<) less than 
+                      (>=) Greater than or equal (<=) Less than or equal
+                      (&&) And (||) Or (!) Not
+            จริงๆแล้ว javascript ก็มี == แต่จะเช็คแค่ค่า ไม่ได้ check Type ของตัวแปร
+        if(ถ้าเงื่อนไขในวงเล็บเป็นจริงจะรันโค้ดในปีกกา){}ถ้าเงื่อนไขในifไม่เป็นจริงรันโค้ดในelse{}
+            เช่น const age = 25;
+                if( age > 18 ) {
+                    console.log('Age is more than 18');
+                } else {
+                    console.log('Age is less than or equal to 18');
+                }
+    Functions 
+        คือกลุ่มคำสั่งที่ใช้ในการทำงานใดงานนึง ซึ่งช่วยในการลดการซ้ำกันของโค้ด
+        function add(a,b){
+            return a + b;
+        }
+    Flow Controls
+        หรือ loops ใช้ในการรันโค้ดซ้ำๆตามจำนวนครั้งหรือจนกว่าconditionเป็นเท็จ
+            การประกาศค่าตัวแปร; เงื่อนไข  ; ส่วนที่เปลี่ยนแปลงค่าของตัวแปร 
+        for(    let i = 0   ; i < 10 ;           i++            ){
+            console.log(i);
+        }
+    DOM manipulation  
+        การจัดการ DOM(Document Object Model) 
+        interface หรือ API ที่ทำให้เราจัดการ HTML/XML ได้ง่ายขึ้น โดยใช้รูปแบบ tree
+                                    document
+                                        |
+                                       HTML
+                                      /   \
+                                    head  body
+                                     /    /  \
+                                  title  div  p  
+         document.queryselector('input'); ใช้ในการดึงelement input
+         document.getElementById('email'); ใช้ในการดึง element ด้วย Id
+         document.createElement('div'); สร้าง div อันใหม่
+         document.appendchild(element); 
+    Events
+        javascript สามารถรันโค้ดบางอย่างได้เมื่อเกิด event บางอย่างขึ้น
+        const btnElem = document.queryselector('button'); //ดึงeventที่ปุ่ม
+        btnElem.addEventListener('click', onClick); //เมื่อใดที่มีคนกดปุ่ม จะเรียก function onClick
+        function onclick(event){
+            console.log(event.target); //ปริ้น element ที่ทำให้เกิด event นั่นคือ button
+        }
